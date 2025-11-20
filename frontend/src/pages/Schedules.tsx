@@ -6,6 +6,7 @@ import { fetchChildren, createChild, updateChild, deleteChild } from '../service
 import { SectionCard } from '../components/common/SectionCard';
 import { StaffForm } from '../components/forms/StaffForm';
 import { ChildForm } from '../components/forms/ChildForm';
+import { Tag } from '../components/common/Tag';
 import { DAY_KEYS, dayLabels, getDailyCapacity } from '../utils/date';
 
 // Normalize string comparisons for attendance parsing.
@@ -157,7 +158,9 @@ export const Schedules = () => {
                   <td>
                     {child.firstName} {child.lastName}
                   </td>
-                  <td>{child.ageGroup}</td>
+                  <td>
+                    <Tag label={child.ageGroup} />
+                  </td>
                   <td>{child.attendancePattern}</td>
                   <td className="table-actions">
                     <button className="ghost-btn" onClick={() => setEditingChild(child)}>

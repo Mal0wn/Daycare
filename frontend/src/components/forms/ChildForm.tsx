@@ -1,5 +1,5 @@
 import type { FormEvent } from 'react';
-import { useEffect, useState } from 'react';
+import { useEffect, useId, useState } from 'react';
 import type { Child } from '../../types';
 import { DAY_KEYS, dayLabels } from '../../utils/date';
 
@@ -13,6 +13,7 @@ interface ChildFormProps {
 }
 
 export const ChildForm = ({ initialData, onSubmit, onCancel }: ChildFormProps) => {
+  const formId = useId();
   const [values, setValues] = useState<Omit<Child, 'id'>>({
     firstName: '',
     lastName: '',
@@ -23,6 +24,12 @@ export const ChildForm = ({ initialData, onSubmit, onCancel }: ChildFormProps) =
   const [selection, setSelection] = useState<string[]>([]);
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [saving, setSaving] = useState(false);
+  const fieldIds = {
+    firstName: `${formId}-firstName`,
+    lastName: `${formId}-lastName`,
+    birthDate: `${formId}-birthDate`,
+    ageGroup: `${formId}-age-group`
+  };
 
   // When editing we preload values + attendance chips.
   useEffect(() => {
@@ -76,25 +83,42 @@ export const ChildForm = ({ initialData, onSubmit, onCancel }: ChildFormProps) =
     <form className="card-form" onSubmit={handleSubmit}>
       <div className="form-inline">
         <div className={`form-field ${errors.firstName ? 'error' : ''}`}>
-          <label>Prénom</label>
-          <input value={values.firstName} onChange={(e) => setValues((prev) => ({ ...prev, firstName: e.target.value }))} />
+          <label htmlFor={fieldIds.firstName}>Prénom</label>
+          <input
+            id={fieldIds.firstName}
+            value={values.firstName}
+            onChange={(e) => setValues((prev) => ({ ...prev, firstName: e.target.value }))}
+          />
           {errors.firstName && <small>{errors.firstName}</small>}
         </div>
         <div className={`form-field ${errors.lastName ? 'error' : ''}`}>
-          <label>Nom</label>
-          <input value={values.lastName} onChange={(e) => setValues((prev) => ({ ...prev, lastName: e.target.value }))} />
+          <label htmlFor={fieldIds.lastName}>Nom</label>
+          <input
+            id={fieldIds.lastName}
+            value={values.lastName}
+            onChange={(e) => setValues((prev) => ({ ...prev, lastName: e.target.value }))}
+          />
           {errors.lastName && <small>{errors.lastName}</small>}
         </div>
       </div>
       <div className="form-inline">
         <div className={`form-field ${errors.birthDate ? 'error' : ''}`}>
-          <label>Date de naissance</label>
-          <input type="date" value={values.birthDate} onChange={(e) => setValues((prev) => ({ ...prev, birthDate: e.target.value }))} />
+          <label htmlFor={fieldIds.birthDate}>Date de naissance</label>
+          <input
+            id={fieldIds.birthDate}
+            type="date"
+            value={values.birthDate}
+            onChange={(e) => setValues((prev) => ({ ...prev, birthDate: e.target.value }))}
+          />
           {errors.birthDate && <small>{errors.birthDate}</small>}
         </div>
         <div className="form-field">
-          <label>Groupe d'âge</label>
-          <select value={values.ageGroup} onChange={(e) => setValues((prev) => ({ ...prev, ageGroup: e.target.value }))}>
+          <label htmlFor={fieldIds.ageGroup}>Groupe d'âge</label>
+          <select
+            id={fieldIds.ageGroup}
+            value={values.ageGroup}
+            onChange={(e) => setValues((prev) => ({ ...prev, ageGroup: e.target.value }))}
+          >
             {ageGroups.map((group) => (
               <option key={group} value={group}>
                 {group}

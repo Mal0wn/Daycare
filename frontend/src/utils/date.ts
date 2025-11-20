@@ -25,7 +25,8 @@ export function getTodayKey(): DayKey {
 // Returns age in years, safeguards invalid dates.
 export function computeAge(birthDate: string): number {
   try {
-    return differenceInYears(new Date(), parseISO(birthDate));
+    const years = differenceInYears(new Date(), parseISO(birthDate));
+    return Number.isFinite(years) ? years : 0;
   } catch (error) {
     console.error(error);
     return 0;

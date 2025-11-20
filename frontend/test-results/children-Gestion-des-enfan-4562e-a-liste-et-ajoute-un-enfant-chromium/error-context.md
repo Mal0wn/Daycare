@@ -1,0 +1,81 @@
+# Page snapshot
+
+```yaml
+- generic [ref=e3]:
+  - complementary [ref=e4]:
+    - generic [ref=e5]:
+      - generic [ref=e6]: 🌈
+      - generic [ref=e7]:
+        - paragraph [ref=e8]: Crèche Arc-en-Ciel
+        - text: Joie & bienveillance
+    - navigation [ref=e9]:
+      - link "Tableau de bord" [ref=e10] [cursor=pointer]:
+        - /url: /
+        - img [ref=e12]
+        - text: Tableau de bord
+      - link "Plannings" [ref=e15] [cursor=pointer]:
+        - /url: /plannings
+        - img [ref=e17]
+        - text: Plannings
+      - link "Activités" [ref=e19] [cursor=pointer]:
+        - /url: /activites
+        - img [ref=e21]
+        - text: Activités
+      - link "Inventaire bébés" [ref=e24] [cursor=pointer]:
+        - /url: /inventaire
+        - img [ref=e26]
+        - text: Inventaire bébés
+      - link "Enfants" [ref=e29] [cursor=pointer]:
+        - /url: /enfants
+        - img [ref=e31]
+        - text: Enfants
+      - link "Thèmes & préférences" [ref=e36] [cursor=pointer]:
+        - /url: /parametres
+        - img [ref=e38]
+        - text: Thèmes & préférences
+    - paragraph [ref=e42]: Fait avec 💛 pour les petits explorateurs.
+  - main [ref=e43]:
+    - generic [ref=e44]:
+      - generic [ref=e45]:
+        - paragraph [ref=e46]: Aujourd'hui est une belle journée pour apprendre 🌼
+        - heading "Centre Arc-en-Ciel" [level=1] [ref=e47]
+      - button "Mode sombre" [ref=e48] [cursor=pointer]:
+        - img [ref=e49]
+        - text: Mode sombre
+    - generic [ref=e52]:
+      - generic [ref=e53]:
+        - heading "Enfants inscrits" [level=2] [ref=e55]
+        - paragraph [ref=e57]: Chargement...
+      - generic [ref=e58]:
+        - heading "Ajouter un enfant" [level=2] [ref=e60]
+        - generic [ref=e62]:
+          - generic [ref=e63]:
+            - generic [ref=e64]:
+              - generic [ref=e65]: Prénom
+              - textbox "Prénom" [ref=e66]
+            - generic [ref=e67]:
+              - generic [ref=e68]: Nom
+              - textbox "Nom" [ref=e69]
+          - generic [ref=e70]:
+            - generic [ref=e71]:
+              - generic [ref=e72]: Date de naissance
+              - textbox "Date de naissance" [ref=e73]
+            - generic [ref=e74]:
+              - generic [ref=e75]: Groupe d'âge
+              - combobox "Groupe d'âge" [ref=e76]:
+                - option "Bébés" [selected]
+                - option "Petits"
+                - option "Moyens"
+                - option "Grands"
+          - generic [ref=e77]:
+            - generic [ref=e78]: Présence hebdomadaire
+            - generic [ref=e79]:
+              - button "Lun" [ref=e80] [cursor=pointer]
+              - button "Mar" [ref=e81] [cursor=pointer]
+              - button "Mer" [ref=e82] [cursor=pointer]
+              - button "Jeu" [ref=e83] [cursor=pointer]
+              - button "Ven" [ref=e84] [cursor=pointer]
+          - generic [ref=e85]:
+            - button "Annuler" [ref=e86] [cursor=pointer]
+            - button "Ajouter un enfant" [ref=e87] [cursor=pointer]
+```

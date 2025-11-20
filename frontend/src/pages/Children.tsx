@@ -4,6 +4,7 @@ import type { Child } from '../types';
 import { fetchChildren, createChild, updateChild, deleteChild } from '../services/api/children';
 import { SectionCard } from '../components/common/SectionCard';
 import { ChildForm } from '../components/forms/ChildForm';
+import { Tag } from '../components/common/Tag';
 import { computeAge, formatFrenchDate } from '../utils/date';
 
 // Children management page listing cards + CRUD form.
@@ -49,7 +50,7 @@ export const Children = () => {
                 <h3>
                   {child.firstName} {child.lastName}
                 </h3>
-                <span className="badge">{child.ageGroup}</span>
+                <Tag label={child.ageGroup} />
               </header>
               <p>
                 Âge : <strong>{computeAge(child.birthDate)} ans</strong>
