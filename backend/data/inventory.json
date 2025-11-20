@@ -1,0 +1,90 @@
+[
+  {
+    "id": "inv-1",
+    "childId": "ch-1",
+    "type": "Lait infantile",
+    "brand": "Douce Nuit",
+    "quantity": 3,
+    "unit": "Boite",
+    "dateReceived": "2025-11-10",
+    "expirationDate": "2025-11-27",
+    "notes": "Sans lactose"
+  },
+  {
+    "id": "inv-2",
+    "childId": "ch-2",
+    "type": "Lait maternel",
+    "brand": "Congelé",
+    "quantity": 5,
+    "unit": "pochette",
+    "dateReceived": "2025-11-01",
+    "expirationDate": "2025-11-24",
+    "notes": "A décongeler le matin"
+  },
+  {
+    "id": "inv-3",
+    "childId": "ch-3",
+    "type": "Eau",
+    "brand": "Source Douce",
+    "quantity": 300,
+    "unit": "ml",
+    "dateReceived": "2025-09-20",
+    "expirationDate": "2026-08-15",
+    "notes": "ouverte le 18/11"
+  },
+  {
+    "id": "inv-4",
+    "childId": "ch-4",
+    "type": "Lait infantile",
+    "brand": "P'tit Nuage",
+    "quantity": 1,
+    "unit": "Boite",
+    "dateReceived": "2025-11-05",
+    "expirationDate": "2025-11-26",
+    "notes": "Presque vide"
+  },
+  {
+    "id": "inv-5",
+    "childId": "ch-5",
+    "type": "Eau",
+    "brand": "Mont Clair",
+    "quantity": 500,
+    "unit": "ml",
+    "dateReceived": "2025-11-18",
+    "expirationDate": "2025-12-31",
+    "notes": "Utiliser pour biberons"
+  },
+  {
+    "id": "inv-6",
+    "childId": "ch-6",
+    "type": "Lait maternel",
+    "brand": "Congelé",
+    "quantity": 6,
+    "unit": "pochette",
+    "dateReceived": "2025-11-01",
+    "expirationDate": "2025-11-18",
+    "notes": ""
+  },
+  {
+    "id": "inv-7",
+    "childId": "ch-7",
+    "type": "Lait infantile",
+    "brand": "Croissance+",
+    "quantity": 2,
+    "unit": "Boite",
+    "dateReceived": "2025-09-24",
+    "expirationDate": "2025-11-21",
+    "notes": "Arôme vanille"
+  },
+  {
+    "id": "inv-8",
+    "childId": "ch-8",
+    "type": "Eau",
+    "brand": "Fontaine Bio",
+    "quantity": 1,
+    "unit": "ml",
+    "dateReceived": "2025-03-10",
+    "expirationDate": "2025-12-27",
+    "notes": "Changer rapidement"
+  }
+]

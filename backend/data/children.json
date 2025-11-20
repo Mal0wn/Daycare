@@ -1,0 +1,162 @@
+[
+  {
+    "id": "ch-1",
+    "firstName": "Élise",
+    "lastName": "Dumont",
+    "birthDate": "2025-04-12",
+    "ageGroup": "Bébés",
+    "attendancePattern": "Lun-Mar-Jeu"
+  },
+  {
+    "id": "ch-2",
+    "firstName": "Noah",
+    "lastName": "Klein",
+    "birthDate": "2023-11-03",
+    "ageGroup": "Petits",
+    "attendancePattern": "Lun-Mar-Jeu-Ven"
+  },
+  {
+    "id": "ch-3",
+    "firstName": "Maya",
+    "lastName": "Gilbert",
+    "birthDate": "2022-08-23",
+    "ageGroup": "Moyens",
+    "attendancePattern": "Mar-Jeu"
+  },
+  {
+    "id": "ch-4",
+    "firstName": "Léon",
+    "lastName": "Chevalier",
+    "birthDate": "2025-07-30",
+    "ageGroup": "Bébés",
+    "attendancePattern": "Lun-Mer-Ven"
+  },
+  {
+    "id": "ch-5",
+    "firstName": "Romy",
+    "lastName": "Benoit",
+    "birthDate": "2024-05-18",
+    "ageGroup": "Petits",
+    "attendancePattern": "Lun-Mar-Jeu"
+  },
+  {
+    "id": "ch-6",
+    "firstName": "Adam",
+    "lastName": "Morel",
+    "birthDate": "2022-02-09",
+    "ageGroup": "Moyens",
+    "attendancePattern": "Lun-Mar-Jeu-Ven"
+  },
+  {
+    "id": "ch-7",
+    "firstName": "Salomé",
+    "lastName": "Vaillant",
+    "birthDate": "2021-09-14",
+    "ageGroup": "Grands",
+    "attendancePattern": "Lun-Jeu-Ven"
+  },
+  {
+    "id": "ch-8",
+    "firstName": "Gaspard",
+    "lastName": "Navarro",
+    "birthDate": "2023-07-21",
+    "ageGroup": "Petits",
+    "attendancePattern": "Lun-Mar-Jeu"
+  },
+  {
+    "id": "ch-9",
+    "firstName": "Ana",
+    "lastName": "Perez",
+    "birthDate": "2022-12-02",
+    "ageGroup": "Moyens",
+    "attendancePattern": "Mar-Mer-Jeu"
+  },
+  {
+    "id": "ch-10",
+    "firstName": "Côme",
+    "lastName": "Rey",
+    "birthDate": "2025-06-08",
+    "ageGroup": "Bébés",
+    "attendancePattern": "Lun-Jeu"
+  },
+  {
+    "id": "ch-11",
+    "firstName": "Aya",
+    "lastName": "Sato",
+    "birthDate": "2021-05-16",
+    "ageGroup": "Grands",
+    "attendancePattern": "Lun-Mar-Ven"
+  },
+  {
+    "id": "ch-12",
+    "firstName": "Naël",
+    "lastName": "Fontaine",
+    "birthDate": "2023-09-27",
+    "ageGroup": "Petits",
+    "attendancePattern": "Lun-Mer-Ven"
+  },
+  {
+    "id": "ch-13",
+    "firstName": "Chiara",
+    "lastName": "Bianchi",
+    "birthDate": "2022-11-19",
+    "ageGroup": "Moyens",
+    "attendancePattern": "Lun-Jeu-Ven"
+  },
+  {
+    "id": "ch-14",
+    "firstName": "Owen",
+    "lastName": "Lam",
+    "birthDate": "2021-01-13",
+    "ageGroup": "Grands",
+    "attendancePattern": "Mar-Jeu"
+  },
+  {
+    "id": "ch-15",
+    "firstName": "Lena",
+    "lastName": "Ferreira",
+    "birthDate": "2025-02-25",
+    "ageGroup": "Bébés",
+    "attendancePattern": "Lun-Mar-Jeu"
+  },
+  {
+    "id": "ch-16",
+    "firstName": "Milo",
+    "lastName": "Carre",
+    "birthDate": "2022-03-15",
+    "ageGroup": "Petits",
+    "attendancePattern": "Lun-Mer-Jeu"
+  },
+  {
+    "id": "ch-17",
+    "firstName": "Jade",
+    "lastName": "Leroy",
+    "birthDate": "2021-11-05",
+    "ageGroup": "Grands",
+    "attendancePattern": "Lun-Mar-Jeu"
+  },
+  {
+    "id": "ch-18",
+    "firstName": "Anya",
+    "lastName": "Ivanov",
+    "birthDate": "2022-04-11",
+    "ageGroup": "Moyens",
+    "attendancePattern": "Lun-Mar-Jeu"
+  },
+  {
+    "id": "ch-19",
+    "firstName": "Tao",
+    "lastName": "Nguyen",
+    "birthDate": "2025-08-19",
+    "ageGroup": "Bébés",
+    "attendancePattern": "Lun-Jeu"
+  },
+  {
+    "id": "49f95940-caf7-454a-8fd2-f607c1d9ebff",
+    "firstName": "Eliott",
+    "lastName": "Calle",
+    "birthDate": "2025-07-06",
+    "ageGroup": "Bébés",
+    "attendancePattern": "Lun-Mer-Ven"
+  }
+]

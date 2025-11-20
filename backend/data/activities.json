@@ -1,0 +1,93 @@
+[
+  {
+    "id": "act-1",
+    "name": "Peinture Arc-en-ciel",
+    "description": "Exploration des couleurs avec des pinceaux géants.",
+    "ageGroups": [
+      "Bébés",
+      "Petits"
+    ],
+    "weekday": "lundi",
+    "maxChildren": 10,
+    "pictures": []
+  },
+  {
+    "id": "act-2",
+    "name": "Yoga Mini-Zen",
+    "description": "Séance de yoga guidée en musique douce.",
+    "ageGroups": [
+      "Petits",
+      "Moyens"
+    ],
+    "weekday": "mardi",
+    "maxChildren": 12,
+    "pictures": []
+  },
+  {
+    "id": "act-3",
+    "name": "Atelier Jardinage",
+    "description": "Plantation de fleurs odorantes dans des pots recyclés.",
+    "ageGroups": [
+      "Moyens",
+      "Grands"
+    ],
+    "weekday": "jeudi",
+    "maxChildren": 8,
+    "pictures": []
+  },
+  {
+    "id": "act-4",
+    "name": "Parcours Moteur",
+    "description": "Tunnels, coussins et mini-toboggan pour se défouler.",
+    "ageGroups": [
+      "Bébés",
+      "Petits",
+      "Moyens"
+    ],
+    "weekday": "vendredi",
+    "maxChildren": 15,
+    "pictures": []
+  },
+  {
+    "id": "act-5",
+    "name": "Souvenirs Carnaval",
+    "description": "Retour en images sur le mini carnaval de février.",
+    "ageGroups": [
+      "Tous"
+    ],
+    "weekday": "mardi",
+    "maxChildren": 20,
+    "pictures": [
+      "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?auto=format&fit=crop&w=300&q=60",
+      "https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?auto=format&fit=crop&w=300&q=60"
+    ]
+  },
+  {
+    "id": "act-6",
+    "name": "Atelier Bulles de Savon",
+    "description": "Immense pluie de bulles avec les grands.",
+    "ageGroups": [
+      "Grands"
+    ],
+    "weekday": "mercredi",
+    "maxChildren": 10,
+    "pictures": [
+      "https://images.unsplash.com/photo-1502764613149-7f1d229e230f?auto=format&fit=crop&w=300&q=60"
+    ]
+  },
+  {
+    "id": "0fd8fbb1-fb54-41a3-afaa-f8280806b352",
+    "name": "Mediation Animale",
+    "description": "Jouer avec des chiens",
+    "weekday": "vendredi",
+    "ageGroups": [
+      "Petits",
+      "Moyens",
+      "Grands"
+    ],
+    "maxChildren": 10,
+    "pictures": [
+      "https://www.everland-petfood.com/wp-content/uploads/chein-et-bebe.jpg"
+    ]
+  }
+]

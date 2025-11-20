@@ -1,0 +1,198 @@
+[
+  {
+    "id": "stf-2",
+    "name": "Lucas Martin",
+    "role": "Assistant",
+    "maxChildrenCapacity": 6,
+    "schedule": {
+      "lundi": {
+        "morning": true,
+        "afternoon": false
+      },
+      "mardi": {
+        "morning": false,
+        "afternoon": false
+      },
+      "mercredi": {
+        "morning": true,
+        "afternoon": true
+      },
+      "jeudi": {
+        "morning": false,
+        "afternoon": false
+      },
+      "vendredi": {
+        "morning": true,
+        "afternoon": true
+      }
+    }
+  },
+  {
+    "id": "stf-3",
+    "name": "Inès Leroy",
+    "role": "Psychomotricienne",
+    "maxChildrenCapacity": 5,
+    "schedule": {
+      "lundi": {
+        "morning": false,
+        "afternoon": true
+      },
+      "mardi": {
+        "morning": true,
+        "afternoon": true
+      },
+      "mercredi": {
+        "morning": true,
+        "afternoon": false
+      },
+      "jeudi": {
+        "morning": true,
+        "afternoon": true
+      },
+      "vendredi": {
+        "morning": false,
+        "afternoon": true
+      }
+    }
+  },
+  {
+    "id": "stf-4",
+    "name": "Nora Garnier",
+    "role": "Educatrice",
+    "maxChildrenCapacity": 7,
+    "schedule": {
+      "lundi": {
+        "morning": true,
+        "afternoon": true
+      },
+      "mardi": {
+        "morning": true,
+        "afternoon": false
+      },
+      "mercredi": {
+        "morning": false,
+        "afternoon": true
+      },
+      "jeudi": {
+        "morning": true,
+        "afternoon": true
+      },
+      "vendredi": {
+        "morning": true,
+        "afternoon": true
+      }
+    }
+  },
+  {
+    "id": "stf-5",
+    "name": "Malo Petit",
+    "role": "Animateur",
+    "maxChildrenCapacity": 10,
+    "schedule": {
+      "lundi": {
+        "morning": true,
+        "afternoon": true
+      },
+      "mardi": {
+        "morning": false,
+        "afternoon": true
+      },
+      "mercredi": {
+        "morning": true,
+        "afternoon": true
+      },
+      "jeudi": {
+        "morning": true,
+        "afternoon": false
+      },
+      "vendredi": {
+        "morning": true,
+        "afternoon": true
+      }
+    }
+  },
+  {
+    "id": "stf-6",
+    "name": "Zoé Perret",
+    "role": "Infirmière",
+    "maxChildrenCapacity": 4,
+    "schedule": {
+      "lundi": {
+        "morning": false,
+        "afternoon": true
+      },
+      "mardi": {
+        "morning": true,
+        "afternoon": true
+      },
+      "mercredi": {
+        "morning": true,
+        "afternoon": true
+      },
+      "jeudi": {
+        "morning": false,
+        "afternoon": true
+      },
+      "vendredi": {
+        "morning": true,
+        "afternoon": false
+      }
+    }
+  },
+  {
+    "id": "156185e9-c085-463d-8624-e6488acbf754",
+    "name": "Severine Dupont",
+    "role": "Assistant",
+    "maxChildrenCapacity": 4,
+    "schedule": {
+      "lundi": {
+        "morning": true,
+        "afternoon": false
+      },
+      "mardi": {
+        "morning": true,
+        "afternoon": false
+      },
+      "mercredi": {
+        "morning": true,
+        "afternoon": false
+      },
+      "jeudi": {
+        "morning": false,
+        "afternoon": true
+      },
+      "vendredi": {
+        "morning": false,
+        "afternoon": true
+      }
+    }
+  },
+  {
+    "id": "a46f6532-6e61-44d9-9e34-1ac9fafbb1a2",
+    "name": "Antoine Regnier",
+    "role": "Assistant",
+    "maxChildrenCapacity": 2,
+    "schedule": {
+      "lundi": {
+        "morning": true,
+        "afternoon": false
+      },
+      "mardi": {
+        "morning": true,
+        "afternoon": false
+      },
+      "mercredi": {
+        "morning": false,
+        "afternoon": false
+      },
+      "jeudi": {
+        "morning": false,
+        "afternoon": false
+      },
+      "vendredi": {
+        "morning": true,
+        "afternoon": false
+      }
+    }
+  }
+]
