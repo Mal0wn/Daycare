@@ -11,6 +11,12 @@ import { DAY_KEYS, dayLabels, getDailyCapacity } from '../utils/date';
 
 // Normalize string comparisons for attendance parsing.
 const normalizePattern = (pattern: string) => pattern.toLowerCase();
+const getSlotTone = (slot?: { morning: boolean; afternoon: boolean }) => {
+  if (!slot?.morning && !slot?.afternoon) return 'pill--none';
+  if (slot.morning && slot.afternoon) return 'pill--full';
+  if (slot.morning) return 'pill--am';
+  return 'pill--pm';
+};
 
 // Page combining staff/children planning plus CRUD forms.
 export const Schedules = () => {
@@ -116,9 +122,8 @@ export const Schedules = () => {
                 <div className="responsive-chip-row">
                   {DAY_KEYS.map((day) => {
                     const slot = member.schedule[day];
-                    const on = slot.morning || slot.afternoon;
                     return (
-                      <span key={`${member.id}-${day}`} className={`pill ${on ? 'pill--on' : 'pill--off'}`}>
+                      <span key={`${member.id}-${day}`} className={`pill ${getSlotTone(slot)}`}>
                         {dayLabels[day]}
                       </span>
                     );
