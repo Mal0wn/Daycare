@@ -67,6 +67,7 @@
   justify-content: space-between;
   align-items: center;
   margin-bottom: 1.5rem;
+  gap: 1rem;
 }
 
 .layout__topbar-left {
@@ -90,6 +91,40 @@
 
 .sidebar__backdrop {
   display: none;
+}
+
+.layout__topbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.user-chip {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.35rem 0.6rem;
+  border-radius: 14px;
+  background: color-mix(in srgb, var(--surface-elevated) 90%, transparent);
+  border: 1px solid var(--border-color);
+}
+
+.user-chip__avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--accent-color);
+  display: grid;
+  place-items: center;
+  font-weight: 800;
+  color: #1f1b2e;
+}
+
+.user-chip__meta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+  line-height: 1.2;
 }
 
 .layout__subtitle {
@@ -391,6 +426,54 @@
   gap: 0.5rem;
 }
 
+.auth-page {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 2rem;
+  background: var(--bg-color);
+}
+
+.auth-card {
+  width: min(440px, 100%);
+  background: var(--surface-elevated);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  padding: 1.5rem;
+  box-shadow: 0 14px 38px rgba(0, 0, 0, 0.12);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.auth-card__header h1 {
+  margin: 0.2rem 0;
+}
+
+.auth-card__eyebrow {
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  font-size: 0.8rem;
+  color: var(--muted-text);
+}
+
+.auth-card__muted {
+  margin: 0;
+  color: var(--muted-text);
+}
+
+.auth-error {
+  color: #b91c1c;
+  margin: 0;
+}
+
+.auth-hint {
+  margin: 0;
+  color: var(--muted-text);
+  font-size: 0.9rem;
+}
+
 .schedule-table {
   display: grid;
   gap: 0.3rem;
@@ -650,6 +733,12 @@ textarea::placeholder {
     gap: 1rem;
   }
 
+  .layout__topbar-actions {
+    width: 100%;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+  }
+
   .layout__topbar-left {
     width: 100%;
   }
@@ -690,6 +779,11 @@ textarea::placeholder {
   }
 
   .layout__topbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .layout__topbar-actions {
     flex-direction: column;
     align-items: flex-start;
   }
