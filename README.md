@@ -1,4 +1,4 @@
-# DayCare With Codex
+# DayCare 
 
 Complete daycare management platform with a joyful React front-end and an Express/Node back-end that stores data locally using JSON files.
 

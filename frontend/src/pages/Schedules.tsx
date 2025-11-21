@@ -101,40 +101,40 @@ export const Schedules = () => {
 
       <div className="grid grid-2">
         <SectionCard title="Équipe & créneaux">
-          <table className="data-table">
-            <thead>
-              <tr>
-                <th>Nom</th>
-                <th>Rôle</th>
-                <th>Capacité</th>
-                {DAY_KEYS.map((day) => (
-                  <th key={day}>{dayLabels[day]}</th>
-                ))}
-                <th></th>
-              </tr>
-            </thead>
-            <tbody>
-              {staff.map((member) => (
-                <tr key={member.id}>
-                  <td>{member.name}</td>
-                  <td>{member.role}</td>
-                  <td>{member.maxChildrenCapacity}</td>
+          <div className="responsive-cards">
+            {staff.map((member) => (
+              <article key={member.id} className="responsive-card">
+                <header className="responsive-card__header">
+                  <div>
+                    <p className="responsive-card__eyebrow">{member.role}</p>
+                    <h3>{member.name}</h3>
+                  </div>
+                  <span className="badge">
+                    Capacité: <strong>{member.maxChildrenCapacity}</strong>
+                  </span>
+                </header>
+                <div className="responsive-chip-row">
                   {DAY_KEYS.map((day) => {
                     const slot = member.schedule[day];
-                    return <td key={`${member.id}-${day}`}>{slot.morning || slot.afternoon ? '😊' : '—'}</td>;
+                    const on = slot.morning || slot.afternoon;
+                    return (
+                      <span key={`${member.id}-${day}`} className={`pill ${on ? 'pill--on' : 'pill--off'}`}>
+                        {dayLabels[day]}
+                      </span>
+                    );
                   })}
-                  <td className="table-actions">
-                    <button className="ghost-btn" onClick={() => setEditingStaff(member)}>
-                      <FiEdit3 />
-                    </button>
-                    <button className="ghost-btn" onClick={() => removeStaff(member.id)}>
-                      <FiTrash2 />
-                    </button>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+                </div>
+                <div className="responsive-card__actions">
+                  <button className="ghost-btn" onClick={() => setEditingStaff(member)}>
+                    <FiEdit3 /> Modifier
+                  </button>
+                  <button className="ghost-btn" onClick={() => removeStaff(member.id)}>
+                    <FiTrash2 /> Supprimer
+                  </button>
+                </div>
+              </article>
+            ))}
+          </div>
         </SectionCard>
         <SectionCard title={editingStaff ? `Modifier ${editingStaff.name}` : 'Ajouter un membre'}>
           <StaffForm initialData={editingStaff ?? undefined} onSubmit={handleStaffSubmit} onCancel={() => setEditingStaff(null)} />
@@ -143,37 +143,31 @@ export const Schedules = () => {
 
       <div className="grid grid-2">
         <SectionCard title="Présence des enfants">
-          <table className="data-table">
-            <thead>
-              <tr>
-                <th>Enfant</th>
-                <th>Groupe</th>
-                <th>Présence</th>
-                <th></th>
-              </tr>
-            </thead>
-            <tbody>
-              {children.map((child) => (
-                <tr key={child.id}>
-                  <td>
-                    {child.firstName} {child.lastName}
-                  </td>
-                  <td>
-                    <Tag label={child.ageGroup} />
-                  </td>
-                  <td>{child.attendancePattern}</td>
-                  <td className="table-actions">
-                    <button className="ghost-btn" onClick={() => setEditingChild(child)}>
-                      <FiEdit3 />
-                    </button>
-                    <button className="ghost-btn" onClick={() => removeChild(child.id)}>
-                      <FiTrash2 />
-                    </button>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+          <div className="responsive-cards">
+            {children.map((child) => (
+              <article key={child.id} className="responsive-card">
+                <header className="responsive-card__header">
+                  <div>
+                    <p className="responsive-card__eyebrow">Enfant</p>
+                    <h3>
+                      {child.firstName} {child.lastName}
+                    </h3>
+                  </div>
+                  <Tag label={child.ageGroup} />
+                </header>
+                <p className="responsive-card__label">Présence</p>
+                <p className="responsive-card__notes">{child.attendancePattern}</p>
+                <div className="responsive-card__actions">
+                  <button className="ghost-btn" onClick={() => setEditingChild(child)}>
+                    <FiEdit3 /> Modifier
+                  </button>
+                  <button className="ghost-btn" onClick={() => removeChild(child.id)}>
+                    <FiTrash2 /> Supprimer
+                  </button>
+                </div>
+              </article>
+            ))}
+          </div>
         </SectionCard>
         <SectionCard title={editingChild ? `Modifier ${editingChild.firstName}` : 'Nouvelle inscription'}>
           <ChildForm initialData={editingChild ?? undefined} onSubmit={handleChildSubmit} onCancel={() => setEditingChild(null)} />

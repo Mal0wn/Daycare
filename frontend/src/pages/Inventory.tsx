@@ -134,50 +134,51 @@ export const Inventory = () => {
           </div>
         }
       >
-        <table className="data-table">
-          <thead>
-            <tr>
-              <th>Enfant</th>
-              <th>Type</th>
-              <th>Marque</th>
-              <th>Qté</th>
-              <th>Entrée</th>
-              <th>Expiration</th>
-              <th>Statut</th>
-              <th>Notes</th>
-              <th></th>
-            </tr>
-          </thead>
-          <tbody>
-            {filteredItems.map((item) => {
-              const status = expirationStatus(item.expirationDate);
-              return (
-                <tr key={item.id}>
-                  <td>{resolveChildName(item.childId)}</td>
-                  <td>{item.type}</td>
-                  <td>{item.brand}</td>
-                  <td>
-                    {item.quantity} {item.unit}
-                  </td>
-                  <td>{formatFrenchDate(item.dateReceived)}</td>
-                  <td>{formatFrenchDate(item.expirationDate)}</td>
-                  <td>
-                    <span className={`badge ${status.tone}`}>{status.label}</span>
-                  </td>
-                  <td>{item.notes}</td>
-                  <td className="table-actions">
-                    <button className="ghost-btn" onClick={() => setEditing(item)}>
-                      <FiEdit3 />
-                    </button>
-                    <button className="ghost-btn" onClick={() => removeItem(item.id)}>
-                      <FiTrash2 />
-                    </button>
-                  </td>
-                </tr>
-              );
-            })}
-          </tbody>
-        </table>
+        <div className="responsive-cards">
+          {filteredItems.map((item) => {
+            const status = expirationStatus(item.expirationDate);
+            return (
+              <article key={item.id} className="responsive-card">
+                <header className="responsive-card__header">
+                  <div>
+                    <p className="responsive-card__eyebrow">{item.type}</p>
+                    <h3>{item.brand}</h3>
+                  </div>
+                  <span className={`badge ${status.tone}`}>{status.label}</span>
+                </header>
+                <div className="responsive-card__grid">
+                  <div>
+                    <p className="responsive-card__label">Enfant</p>
+                    <strong>{resolveChildName(item.childId)}</strong>
+                  </div>
+                  <div>
+                    <p className="responsive-card__label">Quantité</p>
+                    <strong>
+                      {item.quantity} {item.unit}
+                    </strong>
+                  </div>
+                  <div>
+                    <p className="responsive-card__label">Entrée</p>
+                    <strong>{formatFrenchDate(item.dateReceived)}</strong>
+                  </div>
+                  <div>
+                    <p className="responsive-card__label">Expiration</p>
+                    <strong>{formatFrenchDate(item.expirationDate)}</strong>
+                  </div>
+                </div>
+                {item.notes && <p className="responsive-card__notes">{item.notes}</p>}
+                <div className="responsive-card__actions">
+                  <button className="ghost-btn" onClick={() => setEditing(item)}>
+                    <FiEdit3 /> Modifier
+                  </button>
+                  <button className="ghost-btn" onClick={() => removeItem(item.id)}>
+                    <FiTrash2 /> Supprimer
+                  </button>
+                </div>
+              </article>
+            );
+          })}
+        </div>
       </SectionCard>
 
       <SectionCard title={editing ? 'Modifier une entrée' : 'Ajouter au frigo'}>

@@ -12,9 +12,14 @@ const navItems = [
   { to: '/parametres', label: 'Thèmes & préférences', icon: <FiSettings /> }
 ];
 
-export const Sidebar = () => {
+interface SidebarProps {
+  isOpen?: boolean;
+  onNavigate?: () => void;
+}
+
+export const Sidebar = ({ isOpen = true, onNavigate }: SidebarProps) => {
   return (
-    <aside className="sidebar">
+    <aside className={`sidebar ${isOpen ? 'is-open' : ''}`}>
       <div className="sidebar__brand">
         <span className="sidebar__emoji">🌈</span>
         <div>
@@ -24,7 +29,12 @@ export const Sidebar = () => {
       </div>
       <nav>
         {navItems.map((item) => (
-          <NavLink key={item.to} to={item.to} className={({ isActive }) => `sidebar__link ${isActive ? 'active' : ''}`}>
+          <NavLink
+            key={item.to}
+            to={item.to}
+            className={({ isActive }) => `sidebar__link ${isActive ? 'active' : ''}`}
+            onClick={onNavigate}
+          >
             <span className="sidebar__icon">{item.icon}</span>
             {item.label}
           </NavLink>
