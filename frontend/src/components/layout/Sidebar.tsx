@@ -7,7 +7,7 @@ const navItems = [
   { to: '/', label: 'Tableau de bord', icon: <FiHome /> },
   { to: '/plannings', label: 'Plannings', icon: <FiCalendar /> },
   { to: '/activites', label: 'Activités', icon: <MdCelebration /> },
-  { to: '/inventaire', label: 'Inventaire bébés', icon: <MdInventory2 /> },
+  { to: '/inventaire', label: 'Stock', icon: <MdInventory2 /> },
   { to: '/enfants', label: 'Enfants', icon: <FiUsers /> },
   { to: '/parametres', label: 'Thèmes & préférences', icon: <FiSettings /> }
 ];

@@ -21,7 +21,7 @@
         - /url: /activites
         - img [ref=e21]
         - text: Activités
-      - link "Inventaire bébés" [ref=e24] [cursor=pointer]:
+      - link "Stock" [ref=e24] [cursor=pointer]:
         - /url: /inventaire
         - img [ref=e26]
         - text: Inventaire bébés

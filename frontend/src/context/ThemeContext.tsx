@@ -24,6 +24,7 @@ const palette = {
   light: {
     '--bg-color': '#fdf7ff',
     '--surface-color': '#ffffff',
+    '--surface-elevated': '#ffffff',
     '--text-color': '#312f44',
     '--border-color': '#e5d7ff',
     '--muted-text': '#6d6780'
@@ -31,6 +32,7 @@ const palette = {
   dark: {
     '--bg-color': '#1f1b2e',
     '--surface-color': '#2b243d',
+    '--surface-elevated': '#352c4b',
     '--text-color': '#f5f0ff',
     '--border-color': '#3a3352',
     '--muted-text': '#ada7c9'
