@@ -48,7 +48,7 @@
 
 .sidebar__link.active,
 .sidebar__link:hover {
-  background: rgba(255, 255, 255, 0.35);
+  background: color-mix(in srgb, var(--surface-elevated) 80%, transparent);
 }
 
 .sidebar__footer {
@@ -152,7 +152,7 @@
   gap: 1rem;
   padding: 1rem;
   border-radius: 20px;
-  background: rgba(255, 255, 255, 0.8);
+  background: color-mix(in srgb, var(--surface-elevated) 92%, transparent);
   border: 1px solid var(--border-color);
 }
 
@@ -207,11 +207,22 @@
   border-radius: 999px;
   background: rgba(0, 0, 0, 0.05);
   cursor: pointer;
+  color: var(--text-color);
 }
 
 .chip--active {
   background: var(--accent-color);
-  color: #432d4a;
+  color: #1f1b2e;
+}
+
+:root[data-theme='dark'] .chip {
+  background: color-mix(in srgb, var(--surface-elevated) 90%, transparent);
+  color: #f9f7ff;
+}
+
+:root[data-theme='dark'] .chip--active {
+  background: var(--accent-color);
+  color: #1f1b2e;
 }
 
 .tag {
@@ -220,6 +231,11 @@
   border-radius: 999px;
   font-size: 0.8rem;
   font-weight: 600;
+  color: #1f1b2e;
+}
+
+:root[data-theme='dark'] .tag {
+  color: #f9f7ff;
 }
 
 .badge {
@@ -249,7 +265,7 @@
 }
 
 .activity-card {
-  background: rgba(255, 255, 255, 0.9);
+  background: color-mix(in srgb, var(--surface-elevated) 92%, transparent);
   border-radius: 18px;
   padding: 1rem;
   border: 1px solid var(--border-color);
@@ -295,15 +311,18 @@
 .alert-list li {
   padding: 0.7rem 1rem;
   border-radius: 14px;
-  background: rgba(0, 0, 0, 0.04);
+  background: color-mix(in srgb, var(--surface-elevated) 85%, transparent);
+  color: #2c2335;
 }
 
 .alert-list li.danger {
   background: #ffe0e9;
+  color: #2c2335;
 }
 
 .alert-list li.warning {
   background: #fff2cd;
+  color: #2c2335;
 }
 
 .table-actions {
@@ -349,6 +368,7 @@
   border: 1px solid var(--border-color);
   padding: 0.6rem 0.8rem;
   background: var(--surface-color);
+  color: var(--text-color);
 }
 
 .form-field textarea {
@@ -398,6 +418,7 @@
   border-radius: 18px;
   padding: 0.5rem;
   text-align: center;
+  background: var(--surface-color);
 }
 
 .photo-card img {
@@ -419,7 +440,7 @@
 }
 
 .summary-pill {
-  background: rgba(255, 255, 255, 0.9);
+  background: color-mix(in srgb, var(--surface-elevated) 90%, transparent);
   border-radius: 18px;
   padding: 1rem;
   min-width: 120px;
@@ -440,7 +461,7 @@
   border-radius: 18px;
   padding: 1rem;
   border: 1px solid var(--border-color);
-  background: rgba(255, 255, 255, 0.9);
+  background: color-mix(in srgb, var(--surface-elevated) 92%, transparent);
 }
 
 .child-card header {
@@ -478,6 +499,13 @@
   border-radius: 12px;
   border: 1px solid var(--border-color);
   padding: 0.4rem 0.7rem;
+  color: var(--text-color);
+  background: var(--surface-color);
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: var(--muted-text);
 }
 
 .hide-on-mobile {
@@ -493,7 +521,7 @@
   border: 1px solid var(--border-color);
   border-radius: 16px;
   padding: 1rem;
-  background: var(--surface-color);
+  background: color-mix(in srgb, var(--surface-elevated) 94%, transparent);
   box-shadow: 0 10px 30px rgba(49, 47, 68, 0.08);
   display: flex;
   flex-direction: column;

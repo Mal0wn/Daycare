@@ -1,4 +1,4 @@
-// Sidebar hosts pastel navigation and playful branding for the crèche.
+// Sidebar hosts pastel navigation and playful branding for the daycare.
 import { NavLink } from 'react-router-dom';
 import { FiCalendar, FiHome, FiSettings, FiUsers } from 'react-icons/fi';
 import { MdCelebration, MdInventory2 } from 'react-icons/md';
