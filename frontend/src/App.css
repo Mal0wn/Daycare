@@ -554,6 +554,65 @@
   color: var(--muted-text);
 }
 
+.auth-switch {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.auth-switch__label {
+  font-weight: 700;
+  color: var(--text-color);
+}
+
+.auth-toggle {
+  position: relative;
+  width: 52px;
+  height: 28px;
+  display: inline-block;
+}
+
+.auth-toggle input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.auth-toggle__slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--border-color);
+  border-radius: 999px;
+  transition: all 0.2s ease;
+  border: 1px solid var(--border-color);
+}
+
+.auth-toggle__slider:before {
+  position: absolute;
+  content: '';
+  height: 20px;
+  width: 20px;
+  left: 3px;
+  bottom: 3px;
+  background-color: var(--surface-elevated);
+  border-radius: 50%;
+  transition: transform 0.2s ease;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+.auth-toggle input:checked + .auth-toggle__slider {
+  background: var(--accent-color);
+  border-color: var(--accent-color);
+}
+
+.auth-toggle input:checked + .auth-toggle__slider:before {
+  transform: translateX(24px);
+}
+
 .parent-portal {
   width: min(1100px, 100%);
   display: flex;
@@ -565,6 +624,14 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+
+.parent-portal__header-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  justify-content: flex-end;
 }
 
 .auth-error {
@@ -1011,5 +1078,47 @@ textarea::placeholder {
 
   .layout__branding h1 {
     font-size: 1.7em;
+  }
+}
+
+@media (max-width: 300px) {
+  body {
+    font-size: 14px;
+  }
+
+  h1 {
+    font-size: 1.4rem;
+  }
+
+  h2 {
+    font-size: 1.2rem;
+  }
+
+  h3 {
+    font-size: 1.05rem;
+  }
+
+  .auth-card,
+  .section-card,
+  .responsive-card {
+    padding: 0.75rem;
+  }
+
+  .primary-btn,
+  .ghost-btn {
+    padding: 0.55rem 1rem;
+    font-size: 0.95rem;
+  }
+
+  .auth-switch__label {
+    font-size: 0.9rem;
+  }
+
+  .layout__branding h1 {
+    font-size: 1.4em;
+  }
+
+  .layout__subtitle {
+    font-size: 0.95rem;
   }
 }

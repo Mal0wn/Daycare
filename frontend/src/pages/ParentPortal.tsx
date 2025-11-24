@@ -1,4 +1,5 @@
-import { type FormEvent, useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import api from '../services/api/client';
 import type { Activity, BabyInventoryItem } from '../types';
 
@@ -12,6 +13,7 @@ const STORAGE_KEY = 'parent-auth';
 
 // Public parent portal: login + read-only views of their child inventory and activities.
 export const ParentPortal = () => {
+  const navigate = useNavigate();
   const [auth, setAuth] = useState<ParentAuthState>(() => {
     if (typeof window === 'undefined') return { token: null, name: null, email: null };
     const raw = localStorage.getItem(STORAGE_KEY);
@@ -19,7 +21,6 @@ export const ParentPortal = () => {
   });
   const [email, setEmail] = useState(auth.email || 'parent.elise@demo.fr');
   const [password, setPassword] = useState('parent123');
-  const [loginError, setLoginError] = useState<string | null>(null);
   const [inventory, setInventory] = useState<BabyInventoryItem[]>([]);
   const [activities, setActivities] = useState<Activity[]>([]);
   const [loading, setLoading] = useState(false);
@@ -30,24 +31,11 @@ export const ParentPortal = () => {
 
   const headers = useMemo(() => ({ Authorization: `Bearer ${auth.token}` }), [auth.token]);
 
-  const handleLogin = async (event: FormEvent) => {
-    event.preventDefault();
-    setLoginError(null);
-    try {
-      setLoading(true);
-      const { data } = await api.post('/parent/login', { email, password });
-      setAuth({ token: data.token, name: data.user.name, email: data.user.email });
-    } catch (err) {
-      setLoginError('Identifiants incorrects');
-    } finally {
-      setLoading(false);
-    }
-  };
-
   const logout = () => {
     setAuth({ token: null, name: null, email: null });
     setInventory([]);
     setActivities([]);
+    navigate('/login?role=parent');
   };
 
   useEffect(() => {
@@ -68,33 +56,14 @@ export const ParentPortal = () => {
     load();
   }, [auth.token, headers]);
 
+  useEffect(() => {
+    if (!auth.token) {
+      navigate('/login?role=parent', { replace: true });
+    }
+  }, [auth.token, navigate]);
+
   if (!auth.token) {
-    return (
-      <div className="auth-page">
-        <div className="auth-card">
-          <div className="auth-card__header">
-            <p className="auth-card__eyebrow">Espace parents</p>
-            <h1>Connexion</h1>
-            <p className="auth-card__muted">Consultez le stock dédié à votre enfant et les activités du jour.</p>
-          </div>
-          <form className="card-form" onSubmit={handleLogin}>
-            <div className="form-field">
-              <label htmlFor="parentEmail">Email</label>
-              <input id="parentEmail" value={email} onChange={(e) => setEmail(e.target.value)} required />
-            </div>
-            <div className="form-field">
-              <label htmlFor="parentPassword">Mot de passe</label>
-              <input id="parentPassword" type="password" value={password} onChange={(e) => setPassword(e.target.value)} required />
-            </div>
-            {loginError && <p className="auth-error">{loginError}</p>}
-            <button className="primary-btn" type="submit" disabled={loading}>
-              {loading ? 'Connexion...' : 'Se connecter'}
-            </button>
-            <p className="auth-hint">Démo : parent.elise@demo.fr / parent123</p>
-          </form>
-        </div>
-      </div>
-    );
+    return null;
   }
 
   return (
@@ -105,9 +74,27 @@ export const ParentPortal = () => {
             <p className="auth-card__eyebrow">Espace parents</p>
             <h2>Bonjour {auth.name}</h2>
           </div>
-          <button className="ghost-btn" onClick={logout}>
-            Déconnexion
-          </button>
+          <div className="parent-portal__header-actions">
+            <div className="auth-switch">
+              <span className="auth-switch__label">Parent</span>
+              <label className="auth-toggle">
+                <input
+                  type="checkbox"
+                  aria-label="Basculer vers l'espace Direction"
+                  onChange={(e) => {
+                    if (e.target.checked) {
+                      navigate('/login');
+                    }
+                  }}
+                />
+                <span className="auth-toggle__slider" aria-hidden="true" />
+              </label>
+              <span className="auth-switch__label">Direction</span>
+            </div>
+            <button className="ghost-btn" onClick={logout}>
+              Déconnexion
+            </button>
+          </div>
         </header>
 
         <div className="grid grid-2">

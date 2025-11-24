@@ -1,16 +1,18 @@
-import { type FormEvent, useEffect, useState } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { type FormEvent, useEffect, useMemo, useState } from 'react';
+import { useLocation, useNavigate, useSearchParams } from 'react-router-dom';
 import api from '../services/api/client';
 import { useAuth } from '../hooks/useAuth';
 
 // Simple login form for demo auth.
 export const Login = () => {
+  const [searchParams, setSearchParams] = useSearchParams();
   const { login, isAuthenticated } = useAuth();
   const navigate = useNavigate();
   const location = useLocation();
-  const [role, setRole] = useState<'direction' | 'parent'>('direction');
-  const [email, setEmail] = useState('direction@creche.fr');
-  const [password, setPassword] = useState('arcenciel');
+  const initialRoleParam = searchParams.get('role') === 'parent' ? 'parent' : 'direction';
+  const [role, setRole] = useState<'direction' | 'parent'>(initialRoleParam);
+  const [email, setEmail] = useState(initialRoleParam === 'parent' ? 'parent.elise@demo.fr' : 'direction@creche.fr');
+  const [password, setPassword] = useState(initialRoleParam === 'parent' ? 'parent123' : 'arcenciel');
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
   const PARENT_AUTH_KEY = 'parent-auth';
@@ -20,6 +22,15 @@ export const Login = () => {
       navigate('/');
     }
   }, [isAuthenticated, navigate]);
+
+  const syncRole = (nextRole: 'direction' | 'parent') => {
+    setRole(nextRole);
+    setEmail(nextRole === 'parent' ? 'parent.elise@demo.fr' : 'direction@creche.fr');
+    setPassword(nextRole === 'parent' ? 'parent123' : 'arcenciel');
+    setSearchParams({ role: nextRole });
+  };
+
+  const isDirection = useMemo(() => role === 'direction', [role]);
 
   const handleSubmit = async (event: FormEvent) => {
     event.preventDefault();
@@ -50,31 +61,20 @@ export const Login = () => {
           <h1>Connexion</h1>
           <p className="auth-card__muted">Choisissez votre profil puis entrez vos identifiants.</p>
         </div>
+        <div className="auth-switch">
+          <span className="auth-switch__label">Parent</span>
+          <label className="auth-toggle">
+            <input
+              type="checkbox"
+              aria-label="Basculer vers Direction"
+              checked={isDirection}
+              onChange={(e) => syncRole(e.target.checked ? 'direction' : 'parent')}
+            />
+            <span className="auth-toggle__slider" aria-hidden="true" />
+          </label>
+          <span className="auth-switch__label">Direction</span>
+        </div>
         <form className="card-form" onSubmit={handleSubmit}>
-          <div className="chips">
-            <button
-              type="button"
-              className={`chip ${role === 'direction' ? 'chip--active' : ''}`}
-              onClick={() => {
-                setRole('direction');
-                setEmail('direction@creche.fr');
-                setPassword('arcenciel');
-              }}
-            >
-              Direction
-            </button>
-            <button
-              type="button"
-              className={`chip ${role === 'parent' ? 'chip--active' : ''}`}
-              onClick={() => {
-                setRole('parent');
-                setEmail('parent.elise@demo.fr');
-                setPassword('parent123');
-              }}
-            >
-              Parent
-            </button>
-          </div>
           <div className="form-field">
             <label htmlFor="email">Email</label>
             <input id="email" type="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
@@ -88,9 +88,6 @@ export const Login = () => {
             {loading ? 'Connexion...' : 'Se connecter'}
           </button>
         </form>
-        <p className="auth-hint">
-          Direction → direction@creche.fr / arcenciel · Parent démo → parent.elise@demo.fr / parent123
-        </p>
       </div>
     </div>
   );
