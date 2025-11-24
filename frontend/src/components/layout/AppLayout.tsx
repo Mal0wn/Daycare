@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { FiMenu, FiMoon, FiSun } from 'react-icons/fi';
+import { FiMoon, FiSun } from 'react-icons/fi';
 import { Outlet } from 'react-router-dom';
 import { Sidebar } from './Sidebar';
 import { useTheme } from '../../hooks/useTheme';
@@ -14,7 +14,7 @@ export const AppLayout = () => {
 
   useEffect(() => {
     const syncViewport = () => {
-      const mobile = window.innerWidth < 960;
+      const mobile = window.innerWidth < 1000;
       setIsMobile(mobile);
       setSidebarOpen(!mobile);
     };
@@ -32,32 +32,29 @@ export const AppLayout = () => {
 
   return (
     <div className="layout">
-      <Sidebar isOpen={sidebarOpen} onNavigate={closeSidebarOnMobile} />
+      <Sidebar
+        isOpen={sidebarOpen}
+        onNavigate={closeSidebarOnMobile}
+        user={user}
+        onLogout={logout}
+      />
       {isMobile && sidebarOpen && <div className="sidebar__backdrop" onClick={closeSidebarOnMobile} />}
       <main className="layout__content">
         <div className="layout__topbar">
-          <div className="layout__topbar-left">
-            <button className="layout__menu-btn" aria-label="Ouvrir la navigation" onClick={toggleSidebar}>
-              <FiMenu />
-              Menu
-            </button>
-            <div>
-              <p className="layout__subtitle">Aujourd'hui est une belle journée pour apprendre 🌼</p>
-              <h1>Centre Arc-en-Ciel</h1>
-            </div>
-          </div>
-          <div className="layout__topbar-actions">
-            <button className="ghost-btn" onClick={toggleMode}>
-              {mode === 'light' ? <FiMoon /> : <FiSun />} Mode {mode === 'light' ? 'sombre' : 'clair'}
-            </button>
-            <div className="user-chip">
-              <span className="user-chip__avatar">{user?.name?.[0] ?? '?'}</span>
-              <div className="user-chip__meta">
-                <strong>{user?.name ?? 'Invité'}</strong>
-                <small>{user?.email ?? 'Non connecté'}</small>
+          <div className="layout__topbar-row">
+            <div className="layout__topbar-left">
+              <button className="layout__menu-btn" aria-label="Ouvrir la navigation" onClick={toggleSidebar}>
+                <span className="layout__menu-icon" aria-hidden="true">🧸</span>
+                <span className="layout__menu-label">Menu</span>
+              </button>
+              <div className="layout__branding">
+                <h1>Centre Arc-en-Ciel</h1>
+                <p className="layout__subtitle">Aujourd'hui est une belle journée pour apprendre 🌼</p>
               </div>
-              <button className="ghost-btn" onClick={logout}>
-                Déconnexion
+            </div>
+            <div className="layout__topbar-actions">
+              <button className="ghost-btn layout__theme-toggle" onClick={toggleMode}>
+              {mode === 'light' ? <FiMoon /> : <FiSun />} Mode {mode === 'light' ? 'sombre' : 'clair'}
               </button>
             </div>
           </div>
