@@ -3,25 +3,45 @@ import userEvent from '@testing-library/user-event';
 import { describe, expect, it, vi } from 'vitest';
 import { AppLayout } from './AppLayout';
 import { useTheme } from '../../hooks/useTheme';
-import { MemoryRouter } from 'react-router-dom';
+import { MemoryRouter, Route, Routes } from 'react-router-dom';
+import { useAuth } from '../../hooks/useAuth';
 
 vi.mock('../../hooks/useTheme', () => ({
   useTheme: vi.fn()
 }));
+vi.mock('../../hooks/useAuth', () => ({
+  useAuth: vi.fn()
+}));
 
 const mockedUseTheme = vi.mocked(useTheme);
+const mockedUseAuth = vi.mocked(useAuth);
 
 describe('AppLayout', () => {
   it('renders children and toggles theme mode', async () => {
     const toggleMode = vi.fn();
-    mockedUseTheme.mockReturnValue({ mode: 'light', toggleMode });
+    mockedUseTheme.mockReturnValue({
+      mode: 'light', toggleMode,
+      setAccent: function (color: string): void {
+        throw new Error('Function not implemented.');
+      },
+      accent: ''
+    });
+    mockedUseAuth.mockReturnValue({
+      user: { name: 'Admin', email: 'admin@test.fr' },
+      isAuthenticated: true,
+      token: 'token',
+      login: vi.fn(),
+      logout: vi.fn()
+    });
     const user = userEvent.setup();
 
     render(
       <MemoryRouter>
-        <AppLayout>
-          <p>Données</p>
-        </AppLayout>
+        <Routes>
+          <Route element={<AppLayout />}>
+            <Route path="/" element={<p>Données</p>} />
+          </Route>
+        </Routes>
       </MemoryRouter>
     );
 

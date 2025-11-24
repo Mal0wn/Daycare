@@ -1,11 +1,14 @@
-import { useEffect, useState, type ReactNode } from 'react';
+import { useEffect, useState } from 'react';
 import { FiMenu, FiMoon, FiSun } from 'react-icons/fi';
+import { Outlet } from 'react-router-dom';
 import { Sidebar } from './Sidebar';
 import { useTheme } from '../../hooks/useTheme';
+import { useAuth } from '../../hooks/useAuth';
 
 // Main layout wires sidebar + contextual toolbar with theme toggle.
-export const AppLayout = ({ children }: { children: ReactNode }) => {
+export const AppLayout = () => {
   const { mode, toggleMode } = useTheme();
+  const { user, logout } = useAuth();
   const [isMobile, setIsMobile] = useState(false);
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
@@ -43,11 +46,25 @@ export const AppLayout = ({ children }: { children: ReactNode }) => {
               <h1>Centre Arc-en-Ciel</h1>
             </div>
           </div>
-          <button className="ghost-btn" onClick={toggleMode}>
-            {mode === 'light' ? <FiMoon /> : <FiSun />} Mode {mode === 'light' ? 'sombre' : 'clair'}
-          </button>
+          <div className="layout__topbar-actions">
+            <button className="ghost-btn" onClick={toggleMode}>
+              {mode === 'light' ? <FiMoon /> : <FiSun />} Mode {mode === 'light' ? 'sombre' : 'clair'}
+            </button>
+            <div className="user-chip">
+              <span className="user-chip__avatar">{user?.name?.[0] ?? '?'}</span>
+              <div className="user-chip__meta">
+                <strong>{user?.name ?? 'Invité'}</strong>
+                <small>{user?.email ?? 'Non connecté'}</small>
+              </div>
+              <button className="ghost-btn" onClick={logout}>
+                Déconnexion
+              </button>
+            </div>
+          </div>
         </div>
-        <div className="layout__inner">{children}</div>
+        <div className="layout__inner">
+          <Outlet />
+        </div>
       </main>
     </div>
   );
