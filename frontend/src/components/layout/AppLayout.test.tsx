@@ -18,6 +18,7 @@ const mockedUseAuth = vi.mocked(useAuth);
 
 describe('AppLayout', () => {
   it('renders children and toggles theme mode', async () => {
+    Object.defineProperty(window, 'innerWidth', { value: 1400, writable: true });
     const toggleMode = vi.fn();
     mockedUseTheme.mockReturnValue({
       mode: 'light', toggleMode,
@@ -44,6 +45,7 @@ describe('AppLayout', () => {
         </Routes>
       </MemoryRouter>
     );
+    window.dispatchEvent(new Event('resize'));
 
     expect(screen.getByText('Centre Arc-en-Ciel')).toBeInTheDocument();
     expect(screen.getByText('Données')).toBeInTheDocument();
