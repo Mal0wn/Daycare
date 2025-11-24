@@ -463,6 +463,19 @@
   color: var(--muted-text);
 }
 
+.parent-portal {
+  width: min(1100px, 100%);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.parent-portal__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
 .auth-error {
   color: #b91c1c;
   margin: 0;

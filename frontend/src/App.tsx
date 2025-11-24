@@ -8,6 +8,7 @@ import { Children } from './pages/Children';
 import { Settings } from './pages/Settings';
 import { RequireAuth } from './components/auth/RequireAuth';
 import { Login } from './pages/Login';
+import { ParentPortal } from './pages/ParentPortal';
 import './App.css';
 
 // Root app wires all routes into the main layout shell.
@@ -16,6 +17,7 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/login" element={<Login />} />
+        <Route path="/parents" element={<ParentPortal />} />
         <Route
           element={
             <RequireAuth>

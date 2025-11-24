@@ -10,12 +10,18 @@ const {
 } = require('../models/validators');
 const { login, me } = require('../controllers/authController');
 const requireAuth = require('../middlewares/auth');
+const { loginParent, listInventoryForParent, listActivities } = require('../controllers/parentController');
+const requireParent = require('../middlewares/parentAuth');
 
 // Aggregates all resource routers under /api.
 const router = express.Router();
 
 router.post('/auth/login', login);
 router.get('/auth/me', requireAuth, me);
+
+router.post('/parent/login', loginParent);
+router.get('/parent/inventory', requireParent, listInventoryForParent);
+router.get('/parent/activities', requireParent, listActivities);
 
 router.use(requireAuth);
 router.use('/staff', createResourceRouter(createController(staffService, validateStaff)));

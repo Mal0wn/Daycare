@@ -64,4 +64,11 @@ Each route validates required fields, keeps a synchronized in-memory dataset, an
 - Every create/update/delete writes back to disk (`fs.promises.writeFile`) to simulate a local database.
 - Because everything lives inside the repository, no external DB setup is needed. The JSON files can be inspected or edited manually if required; restarting the server will re-read the updated content.
 
+## Comptes de test
+
+- **Direction (accès complet)** : `direction@creche.fr` / `arcenciel` — se connecter sur `/login` puis accéder à tout le back-office.
+- **Parents (lecture seule)** : accès via `/parents`
+  - Parent Élise : `parent.elise@demo.fr` / `parent123` (voit uniquement le stock de Élise + activités)
+  - Parent Noah : `parent.noah@demo.fr` / `parent123`
+
 Enjoy running Arc-en-Ciel! 🌈
