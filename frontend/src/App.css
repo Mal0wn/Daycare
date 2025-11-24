@@ -221,8 +221,29 @@
   flex-wrap: wrap;
 }
 
-.section-card h2 {
+.section-card__header-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.section-card__title-button {
+  border: none;
+  background: transparent;
+  padding: 0;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+  text-align: left;
+}
+
+.section-card h2,
+.section-card__title-button {
   margin: 0;
+  font-size: 1.5rem;
+  line-height: 1.2;
+  font-weight: 700;
+  color: inherit;
 }
 
 .section-card__body {
@@ -238,8 +259,18 @@
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
 }
 
+.grid-2.stack-at-1100 {
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
 .grid-4 {
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+}
+
+.stacked-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
 }
 
 .stat-card {
@@ -855,6 +886,10 @@ textarea::placeholder {
   }
 
   .grid-2 {
+    grid-template-columns: 1fr;
+  }
+
+  .grid-2.stack-at-1100 {
     grid-template-columns: 1fr;
   }
 
