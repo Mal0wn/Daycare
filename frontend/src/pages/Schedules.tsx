@@ -105,8 +105,27 @@ export const Schedules = () => {
         </div>
       </SectionCard>
 
-      <div className="grid grid-2">
-        <SectionCard title="Équipe & créneaux">
+      <div className="grid grid-2 stack-at-1100">
+        <SectionCard
+          title={editingStaff ? `Modifier ${editingStaff.name}` : 'Ajouter un membre'}
+          collapsible
+          defaultCollapsed
+          collapseBelow={1100}
+        >
+          <StaffForm initialData={editingStaff ?? undefined} onSubmit={handleStaffSubmit} onCancel={() => setEditingStaff(null)} />
+        </SectionCard>
+        <SectionCard
+          title={editingChild ? `Modifier ${editingChild.firstName}` : 'Nouvelle inscription'}
+          collapsible
+          defaultCollapsed
+          collapseBelow={1100}
+        >
+          <ChildForm initialData={editingChild ?? undefined} onSubmit={handleChildSubmit} onCancel={() => setEditingChild(null)} />
+        </SectionCard>
+      </div>
+
+      <div className="stacked-cards">
+        <SectionCard title="Équipe & créneaux" collapsible defaultCollapsed collapseBelow={1100}>
           <div className="responsive-cards">
             {staff.map((member) => (
               <article key={member.id} className="responsive-card">
@@ -141,13 +160,7 @@ export const Schedules = () => {
             ))}
           </div>
         </SectionCard>
-        <SectionCard title={editingStaff ? `Modifier ${editingStaff.name}` : 'Ajouter un membre'}>
-          <StaffForm initialData={editingStaff ?? undefined} onSubmit={handleStaffSubmit} onCancel={() => setEditingStaff(null)} />
-        </SectionCard>
-      </div>
-
-      <div className="grid grid-2">
-        <SectionCard title="Présence des enfants">
+        <SectionCard title="Présence des enfants" collapsible defaultCollapsed collapseBelow={1100}>
           <div className="responsive-cards">
             {children.map((child) => (
               <article key={child.id} className="responsive-card">
@@ -173,9 +186,6 @@ export const Schedules = () => {
               </article>
             ))}
           </div>
-        </SectionCard>
-        <SectionCard title={editingChild ? `Modifier ${editingChild.firstName}` : 'Nouvelle inscription'}>
-          <ChildForm initialData={editingChild ?? undefined} onSubmit={handleChildSubmit} onCancel={() => setEditingChild(null)} />
         </SectionCard>
       </div>
     </div>
